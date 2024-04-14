@@ -9,9 +9,37 @@
     width: 50%;
     height: 100%;
     object-fit: cover;
+    animation-fill-mode: forwards;
+    animation-duration: .5s;
 }
+.videoDouble.fade-out {
+    animation-name: fadeOut ; /* Aplicar la animación de desvanecimiento */
+  }
+  
+  .videoDouble.fade-in {
+    animation-name: fadeIn; /* Aplicar la animación de aparición */
+  }
+
+
 .contDoubleVideo{
     display: flex;
     height: 100vh;
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.9;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 1;
+  }
+}

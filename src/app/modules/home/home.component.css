@@ -1,0 +1,17 @@
+.video{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.videoDouble{
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+.contDoubleVideo{
+    display: flex;
+    height: 100vh;
+}
+

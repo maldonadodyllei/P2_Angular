@@ -1,4 +1,5 @@
-import { Component, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,15 @@ import { Component, ElementRef, AfterViewInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  constructor() {
+
+  }
+
+  ngOnInit(): void {
+  }
+/*
   private scrollTimer: any;
   ngAfterViewInit() {
     window.addEventListener('scroll', () => {
@@ -18,7 +27,7 @@ export class HomeComponent {
       }, 100);
     });
   }
-  /*
+  
   private alreadyScrolled = false;
   constructor(private elementRef: ElementRef) {}
 

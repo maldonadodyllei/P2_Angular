@@ -88,7 +88,8 @@
     />
     <div class="overlay overlay-V2 spaceGap">
       <p class="overlayText overlayText-V2">
-        DBX707. Impresionantes prestaciones del deportivo Aston Martin. En un SUV de lujo. Poder colosal al que puedes acceder y controlar
+        DBX707. Impresionantes prestaciones del deportivo Aston Martin. En un
+        SUV de lujo. Poder colosal al que puedes acceder y controlar
       </p>
       <div class="btns">
         <a
@@ -188,23 +189,35 @@
     </div>
   </div>
   <div class="contDoubleVideo" #contDoubleVideo>
-    <video
-      #video1
-      src="https://dacastdd.s.llnwi.net/universe-vod-storage/inline/289c9a4b-581b-e0db-677c-cf368cdcb198/72de2871e0317f38dccd55f3f8989191/source.mp4?p=137&s=1713113843&e=1713117443&X-Dacast-Vod=72de2871e0317f38dccd55f3f8989191&h=9b347c179458445e93e816777b55cfe7"
-      loop
-      muted
-      class="videoDouble"
-      (mouseenter)="playVideo(video1)"
-      (mouseleave)="stopVideo(video1)"
-    ></video>
-    <video
-      #video2
-      src="https://dacastdd.s.llnwi.net/universe-vod-storage/inline/289c9a4b-581b-e0db-677c-cf368cdcb198/dcfb0227-16cb-4cc3-a957-ee2cbb08569e/source.mp4?p=141&s=1713113955&e=1713117555&X-Dacast-Vod=dcfb0227-16cb-4cc3-a957-ee2cbb08569e&h=725ddd101f60147d18718239c086c840"
-      loop
-      muted
-      class="videoDouble"
-      (mouseenter)="playVideo(video2)"
-      (mouseleave)="stopVideo(video2)"
-    ></video>
+    <div 
+    class="contVideo contVideo-V2"
+    (mouseenter)="playVideo(video1)"
+    (mouseleave)="stopVideo(video1)"
+    >
+      <video
+        #video1
+        src="https://dacastdd.s.llnwi.net/universe-vod-storage/inline/289c9a4b-581b-e0db-677c-cf368cdcb198/72de2871e0317f38dccd55f3f8989191/source.mp4?p=137&s=1713113843&e=1713117443&X-Dacast-Vod=72de2871e0317f38dccd55f3f8989191&h=9b347c179458445e93e816777b55cfe7"
+        loop
+        muted
+        class="videoDouble"
+      ></video>
+      <div class="contTxt contTxt-V3">
+        <p>Aston Martin seminuevo</p>
+      </div>
+    </div>
+    <div class="contVideo contVideo-V2"
+    (mouseenter)="playVideo(video2)"
+    (mouseleave)="stopVideo(video2)">
+      <video
+        #video2
+        src="https://dacastdd.s.llnwi.net/universe-vod-storage/inline/289c9a4b-581b-e0db-677c-cf368cdcb198/dcfb0227-16cb-4cc3-a957-ee2cbb08569e/source.mp4?p=141&s=1713113955&e=1713117555&X-Dacast-Vod=dcfb0227-16cb-4cc3-a957-ee2cbb08569e&h=725ddd101f60147d18718239c086c840"
+        loop
+        muted
+        class="videoDouble"
+      ></video>
+      <div class="contTxt contTxt-V3">
+        <p>Revista Aston Martin</p>
+      </div>
+    </div>
   </div>
 </div>

@@ -64,7 +64,6 @@
   background: rgba(255, 255, 255, .15);
   backdrop-filter: blur(35px);
   box-shadow: 0 1px 3px rgba(18,18,18,.2), inset 0 1px 0.5px rgba(255,255,255,.12), inset 0 -1px 0 rgba(18,18,18,.08);
-  
 }
 
 
@@ -151,12 +150,25 @@
   padding-inline: 5em ;
 }
 
+.contTxt-V3{
+  justify-content: start;
+  align-items: start;
+}
+
+.contTxt-V3 p{
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-top: 6.5em;
+  padding-inline: 3em ;
+}
+
 .spaceGap{
   gap: 2.2em;
 }
 
 .videoDouble{
-    width: 50%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     animation-fill-mode: forwards;
@@ -172,9 +184,12 @@
 
 
 .contDoubleVideo{
-    display: flex;
-    height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  height: 100vh;
+  display: flex;
 }
+
 
 @keyframes fadeOut {
   from {

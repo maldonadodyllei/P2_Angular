@@ -12,6 +12,7 @@ section h3 {
   text-transform: uppercase;
   transition: color 0.3s linear;
   margin-left: 1em;
+  margin-bottom: 1em;
   font-weight: 600;
 }
 

@@ -7,8 +7,10 @@ import { Car } from '../interfaces/car.model';
 export class CarsService {
   private carListSubject = new BehaviorSubject<Car[]>([]);
   carList$ = this.carListSubject.asObservable();
-  constructor() { 
 
+  private carList: Car[] = [];
+  constructor() { 
+/*
     const carList: Car[] = [
       {
         brand: 'AstonMartin',
@@ -56,6 +58,39 @@ export class CarsService {
       },
     ];
 
-    this.carListSubject.next(carList);
+    this.carListSubject.next(carList);*/
+  }
+
+  addCar(car: Car): void {
+    this.carList.push(car);
+  }
+
+  getCars(): Car[] {
+    return this.carList;
+  }
+
+  checkCarByModel(model: string): boolean {
+     if (this.carList.find(car => car.model === model)) {
+       return true;
+     }
+      return false;
+  }
+
+  updateCar(coche: Car): void {
+    if (!this.carList.find(car => car.seriesNumber === coche.seriesNumber)) {
+      this.addCar(coche);
+      return;
+    }else{
+      this.updateCarList(coche);
+    }
+  }
+
+  updateCarList(car: Car): void {
+    this.carList = this.carList.map(coche => {
+      if (coche.seriesNumber === car.seriesNumber) {
+        return car;
+      }
+      return coche;
+    });
   }
 }

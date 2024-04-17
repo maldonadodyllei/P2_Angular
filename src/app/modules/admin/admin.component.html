@@ -20,6 +20,7 @@
         placeholder="Modelo"
         name="model"
         formControlName="model"
+        [(ngModel)]="nmModel"
       />
       @if(CarForm.get('model')?.touched &&
       CarForm.get('model')?.hasError('required')){
@@ -94,16 +95,6 @@
         name="available"
         formControlName="available"
       />
-      @if(CarForm.get('available')?.touched &&
-      CarForm.get('available')?.hasError('required')){
-      <p class="error">La disponibilidad es requerido</p>
-      }
-    </div>
-    <div class="contInput">
-        <input type="file" placeholder="image" name="image" formControlName="image"/>
-        @if(CarForm.get('image')?.touched && CarForm.get('image')?.hasError('required')){
-          <p class="error">El nombre del modelo es requerido</p>
-        }
     </div>
     <button type="submit" [disabled]="CarForm.invalid" class="btnSubmit">
       Guardar

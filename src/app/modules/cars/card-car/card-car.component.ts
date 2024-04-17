@@ -12,6 +12,5 @@ export class CardCarComponent {
   @Input({required: true}) car: Car | null = null;
 
   constructor() {
-    console.log(this.car);
    }
 }

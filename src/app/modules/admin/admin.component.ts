@@ -16,6 +16,42 @@ import { CarsService } from '../../services/cars.service';
 })
 export class AdminComponent {
   CarForm!: FormGroup;
+  nmModel: string = ''
+  imagesAM = [
+    {
+      model: 'DBX707' ,
+      path: 'https://www.astonmartinboston.com/wp-content/uploads/br2nwoSw-1024x669.png'
+    },
+    {
+      model: 'DBX V8',
+      path: 'https://www.astonmartinboston.com/wp-content/uploads/Qt7xj2Q.png'
+    },
+    {
+      model: 'Vantage',
+      path: 'https://www.astonmartinboston.com/wp-content/uploads/gFlsWY6A.png'
+    },
+    {
+      model: 'DBS Coupe',
+      path: 'https://www.astonmartinboston.com/wp-content/uploads/aUHnsBmw.png'
+    },
+    {
+      model: 'DB11',
+      path: 'https://www.astonmartinboston.com/wp-content/uploads/rXq4Oh0U.png'
+    },
+    {
+      model: 'DB11 Volante',
+      path: 'https://www.astonmartinboston.com/wp-content/uploads/SzYDI8wg.png'
+    },
+    {
+      model: 'DBS 770 Ultimate',
+      path: 'https://www.astonmartinwashingtondc.com/wp-content/uploads/aston-martin-dbs-770-ultimate-coupe-1024x728.png'
+    },
+    {
+      model: 'DBS Volante',
+      path: 'https://www.astonmartinwashingtondc.com/wp-content/uploads/aston-martin-dbs-volante-1536x1091.png'
+    }
+  ]
+
   constructor(
     private fb: FormBuilder, 
     private carsService: CarsService
@@ -26,8 +62,8 @@ export class AdminComponent {
       seriesNumber: new FormControl('', [
         Validators.required,
         Validators.pattern('^[0-9]*$'),
-        Validators.minLength(10),
-        Validators.maxLength(10),
+        Validators.min(1000000000),
+        Validators.max(9999999999)
       ]),
       model: new FormControl('', [
         Validators.required,
@@ -35,7 +71,6 @@ export class AdminComponent {
       ]),
       category: new FormControl('', Validators.required),
       image: new FormControl(
-        'https://www.astonmartinwashingtondc.com/wp-content/uploads/aston-martin-dbs-770-ultimate-coupe-1024x728.png',
         Validators.required
       ),
       cv: new FormControl('', [
@@ -55,14 +90,28 @@ export class AdminComponent {
         Validators.min(1),
         Validators.pattern('^[0-9]*$'),
       ]),
-      available: new FormControl('', Validators.required),
+      available: new FormControl(''),
     });
   }
 
   onSubmit(): void {
     if (this.CarForm.valid) {
-      this.carsService.carsL.set([this.CarForm.value]);
+      const newCar = this.CarForm.value;
+      newCar.image = this.getImagePath();
+      const currentCars = this.carsService.carsL();
+      const updatedCars = [...currentCars, newCar];
+      this.carsService.carsL.set(updatedCars);
       this.CarForm.reset();
+    }
+  }
+
+  getImagePath(): string {
+    const matchedImage = this.imagesAM.find(image => image.model === this.nmModel);
+    if (matchedImage) {
+      return matchedImage.path;
+    } else {
+      const randomIndex = Math.floor(Math.random() * this.imagesAM.length);
+      return this.imagesAM[randomIndex].path;
     }
   }
 }

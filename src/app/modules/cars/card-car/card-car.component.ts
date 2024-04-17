@@ -11,5 +11,7 @@ import { Car } from '../../../interfaces/car.model';
 export class CardCarComponent {
   @Input({required: true}) car: Car | null = null;
 
-  constructor() { }
+  constructor() {
+    console.log(this.car);
+   }
 }

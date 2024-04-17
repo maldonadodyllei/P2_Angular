@@ -6,7 +6,6 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Car } from '../../interfaces/car.model';
 import { CarsService } from '../../services/cars.service';
 @Component({
   selector: 'app-admin',
@@ -16,18 +15,54 @@ import { CarsService } from '../../services/cars.service';
   styleUrl: './admin.component.css',
 })
 export class AdminComponent {
-  constructor(private carsService: CarsService) {}
+  CarForm!: FormGroup;
+  constructor(
+    private fb: FormBuilder, 
+    private carsService: CarsService
+  ) {}
 
-  CarForm = new FormGroup({
-    seriesNumber: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-    model: new FormControl('', Validators.required),
-    category: new FormControl('', Validators.required),
-    image: new FormControl('', Validators.required),
-    cv: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-    maxSpeed: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-    accelerationTime: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-    price: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-    available: new FormControl('', Validators.required),
+  ngOnInit(): void {
+    this.CarForm = this.fb.group({
+      seriesNumber: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+        Validators.minLength(10),
+        Validators.maxLength(10),
+      ]),
+      model: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      category: new FormControl('', Validators.required),
+      image: new FormControl(
+        'https://www.astonmartinwashingtondc.com/wp-content/uploads/aston-martin-dbs-770-ultimate-coupe-1024x728.png',
+        Validators.required
+      ),
+      cv: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+      ]),
+      maxSpeed: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+      ]),
+      accelerationTime: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[0-9]+(.[0-9]+)?$'),
+      ]),
+      price: new FormControl('', [
+        Validators.required,
+        Validators.min(1),
+        Validators.pattern('^[0-9]*$'),
+      ]),
+      available: new FormControl('', Validators.required),
+    });
+  }
 
-  });
+  onSubmit(): void {
+    if (this.CarForm.valid) {
+      this.carsService.carsL.set([this.CarForm.value]);
+      this.CarForm.reset();
+    }
+  }
 }

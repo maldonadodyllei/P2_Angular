@@ -1,13 +1,22 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, signal } from '@angular/core';
 import { Car } from '../interfaces/car.model';
 @Injectable({
   providedIn: 'root'
 })
 export class CarsService {
-  private carListSubject = new BehaviorSubject<Car[]>([]);
-  carList$ = this.carListSubject.asObservable();
-
+  carsL = signal<Car[]>([
+    {
+      seriesNumber: 1234567890,
+      model: 'DBS 770 Ultimate',
+      category: 'Coupé',
+      image:'https://www.astonmartinwashingtondc.com/wp-content/uploads/aston-martin-dbs-770-ultimate-coupe-1024x728.png',
+      cv: 770,
+      maxSpeed: 340,
+      accelerationTime: 3.4,
+      price: 314000,
+      available: true
+    }
+  ]);
   private carList: Car[] = [];
   constructor() { 
 /*
@@ -61,13 +70,12 @@ export class CarsService {
     this.carListSubject.next(carList);*/
   }
 
+
+
   addCar(car: Car): void {
     this.carList.push(car);
   }
 
-  getCars(): Car[] {
-    return this.carList;
-  }
 
   checkCarByModel(model: string): boolean {
      if (this.carList.find(car => car.model === model)) {

@@ -1,3 +1,112 @@
 <div class="bodyA">
-  
+  <h1>Añadir un nuevo modelo</h1>
+  <form [formGroup]="CarForm" (ngSubmit)="onSubmit()">
+    <div class="contInput">
+      <input
+        type="number"
+        placeholder="Numero de serie"
+        name="seriesNumber"
+        formControlName="seriesNumber"
+        maxlength="10"
+      />
+      @if(CarForm.get('seriesNumber')?.touched &&
+      CarForm.get('seriesNumber')?.hasError('required')){
+      <p class="error">El numero de serie es requerido</p>
+      }
+    </div>
+    <div class="contInput">
+      <input
+        type="text"
+        placeholder="Modelo"
+        name="model"
+        formControlName="model"
+      />
+      @if(CarForm.get('model')?.touched &&
+      CarForm.get('model')?.hasError('required')){
+      <p class="error">El nombre del modelo es requerido</p>
+      }
+    </div>
+    <div class="contInput">
+      <select name="category" id="category" formControlName="category">
+        <option value="Coupé">Coupé</option>
+        <option value="Cabriolet">Cabriolet</option>
+        <option value="SUV">SUV</option>
+        <option value="Berlina">Berlina</option>
+      </select>
+      @if(CarForm.get('category')?.touched &&
+      CarForm.get('category')?.hasError('required')){
+      <p class="error">La categoria es requerido</p>
+      }
+    </div>
+
+    <div class="contInput">
+      <input
+        type="number"
+        placeholder="Caballos de fuerza"
+        name="cv"
+        formControlName="cv"
+      />
+      @if(CarForm.get('cv')?.touched &&
+      CarForm.get('cv')?.hasError('required')){
+      <p class="error">El numero de caballos de fuerza es requerido</p>
+      }
+    </div>
+    <div class="contInput">
+      <input
+        type="number"
+        placeholder="Velocidad máxima"
+        name="maxSpeed"
+        formControlName="maxSpeed"
+      />
+      @if(CarForm.get('maxSpeed')?.touched &&
+      CarForm.get('maxSpeed')?.hasError('required')){
+      <p class="error">La velocidad máxima es requerida</p>
+      }
+    </div>
+    <div class="contInput">
+      <input
+        type="number"
+        placeholder="Aceleración de 0 a 100 km/h"
+        name="accelerationTime"
+        formControlName="accelerationTime"
+      />
+      @if(CarForm.get('accelerationTime')?.touched &&
+      CarForm.get('accelerationTime')?.hasError('required')){
+      <p class="error">La aceleración es requerido</p>
+      }
+    </div>
+    <div class="contInput">
+      <input
+        type="number"
+        placeholder="Precio"
+        name="price"
+        formControlName="price"
+      />
+      @if(CarForm.get('price')?.touched &&
+      CarForm.get('price')?.hasError('required')){
+      <p class="error">El precio es requerido</p>
+      }
+    </div>
+    <div class="contInput">
+        <label for="available">Disponibilidad</label>
+      <input
+        type="checkbox"
+        name="available"
+        formControlName="available"
+      />
+      @if(CarForm.get('available')?.touched &&
+      CarForm.get('available')?.hasError('required')){
+      <p class="error">La disponibilidad es requerido</p>
+      }
+    </div>
+    <div class="contInput">
+        <input type="file" placeholder="image" name="image" formControlName="image"/>
+        @if(CarForm.get('image')?.touched && CarForm.get('image')?.hasError('required')){
+          <p class="error">El nombre del modelo es requerido</p>
+        }
+    </div>
+    <button type="submit" [disabled]="CarForm.invalid" class="btnSubmit">
+      Guardar
+    </button>
+  </form>
 </div>

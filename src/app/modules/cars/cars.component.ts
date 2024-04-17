@@ -13,12 +13,10 @@ export class CarsComponent implements OnInit{
   carList: Car[] = [];
   constructor(
     public carsService: CarsService
-  ) { 
-    this.carsService.carList$.subscribe((cars: Car[]) => {
-      this.carList = cars;
-    });
-  }
+  ) { }
 
   ngOnInit(): void {
+    this.carList = this.carsService.carsL();
+    console.log(this.carList);
   }
 }

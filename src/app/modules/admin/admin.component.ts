@@ -18,7 +18,7 @@ import { CarsService } from '../../services/cars.service';
 export class AdminComponent {
   CarForm!: FormGroup;
   nmModel: string = '';
-  nmbSeries: number = 0;
+  nmbSeries!: number;
   imagesAM = [
     {
       model: 'DBX707',
@@ -125,6 +125,7 @@ export class AdminComponent {
         const updatedCars = [...currentCars, newCar];
         this.carsService.carsL.set(updatedCars);
         this.CarForm.reset();
+        this.CarForm.patchValue({ category: '' });
       }
     }
   }

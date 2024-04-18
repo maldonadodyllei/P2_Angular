@@ -12,7 +12,6 @@ export class CarsService {
     this.carList.push(car);
   }
 
-
   checkCarByModel(model: string): boolean {
      if (this.carList.find(car => car.model === model)) {
        return true;

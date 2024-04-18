@@ -12,7 +12,9 @@
   scrollbar-color: #025650 black;
 }
 
-
+header{
+  animation: fade-in-top 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) 0.2s both;
+}
 /*--------------ANIMATIONS--------------*/
 
 @keyframes fade-in-top {
@@ -23,6 +25,7 @@
   100% {
     transform: translateY(0);
     opacity: 1;
+    backdrop-filter: blur(40px);
   }
 }
 

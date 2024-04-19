@@ -1,0 +1,34 @@
+<div class="bodyCars">
+  <section id="coupe">
+    <h3>Coupé</h3>
+    <div class="cardsModels">
+      @for(car of carList; track car) { @if(car.category == 'Coupé'){
+      <app-card-car [car]="car"></app-card-car>
+      } }
+    </div>
+  </section>
+  <section id="cabriolet">
+    <h3>Cabriolet</h3>
+    <div class="cardsModels">
+      @for(car of carList; track car){ @if(car.category == 'Cabriolet'){
+      <app-card-car [car]="car"></app-card-car>
+      } }
+    </div>
+  </section>
+  <section id="suv">
+    <h3>SUV</h3>
+    <div class="cardsModels">
+      @for(car of carList; track car){ @if(car.category == 'SUV'){
+      <app-card-car [car]="car"></app-card-car>
+      } }
+    </div>
+  </section>
+  <section id="berlina">
+    <h3>Berlina</h3>
+    <div class="cardsModels">
+      @for(car of carList; track car){ @if(car.category == 'Berlina'){
+      <app-card-car [car]="car"></app-card-car>
+      } }
+    </div>
+  </section>
+</div>

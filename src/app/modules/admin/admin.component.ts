@@ -114,6 +114,7 @@ export class AdminComponent {
         });
         this.carsService.carsL.set(updatedCars);
         this.CarForm.reset();
+        this.CarForm.patchValue({ category: '' });
         return;
       } else {
         newCar.image = this.getImagePath();

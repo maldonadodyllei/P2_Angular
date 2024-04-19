@@ -173,13 +173,19 @@
     object-fit: cover;
     animation-fill-mode: forwards;
     animation-duration: .5s;
+
+    @media screen and (max-width: 1024px){
+      height: 100vh;
+      object-position: bottom;
+      display: flex;
+    }
 }
 .videoDouble.fade-out {
-    animation-name: fadeOut ; /* Aplicar la animación de desvanecimiento */
+    animation-name: fadeOut ; 
   }
   
   .videoDouble.fade-in {
-    animation-name: fadeIn; /* Aplicar la animación de aparición */
+    animation-name: fadeIn;
   }
 
 
@@ -188,6 +194,11 @@
   object-fit: cover;
   height: 100vh;
   display: flex;
+
+  @media screen and (max-width: 1024px) {
+    flex-direction: column;
+    height: auto;
+  }
 }
 
 
@@ -226,5 +237,5 @@
   .videoV2{
     height: 92vh;
   }
-
 }
+

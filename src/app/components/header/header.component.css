@@ -1,68 +1,56 @@
-.containerH{
-    height: 64px;
-    padding-inline: 40px;
-    background-color: rgba(0, 0, 0, .45);
-    backdrop-filter: blur(46px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    overflow-y: hidden;
+.containerH {
+  height: 64px;
+  padding-inline: 40px;
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(46px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow-y: hidden;
 }
 
-.aston-martin-logo{
-    display: flex;
-    width: 160px;
-    filter: invert(1);
+.aston-martin-logo {
+  display: flex;
+  width: 160px;
+  filter: invert(1);
 }
 
-ul{
-    display: flex;
-    list-style: none;
-    align-items: center;
+ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
 }
 
-li{
-    cursor: pointer;
+li {
+  cursor: pointer;
 }
 
-.ul-rutas{
-    gap: 16px;
+.ul-rutas {
+  gap: 12px;
 }
 
-.ul-rutas li a{
-    position: relative;
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 8px 12px;
-    transition: .3s ease-in-out;
-    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition-duration: 400ms;
-    transition-property: color;
+.ul-rutas li a {
+  letter-spacing: normal;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  height: 40px;
+  line-height: 24px;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(35px);
+  color: white;
+  width: unset;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0 16px;
+  box-shadow: 0 1px 3px rgba(18, 18, 18, 0.2),
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(18, 18, 18, 0.08);
+  transition: 0.3s ease-in-out;
 }
 
-.ul-rutas li a:focus,
 .ul-rutas li a:hover {
-  color: #fff;
-}
-
-.ul-rutas li a:focus:after,
-.ul-rutas li a:hover:after {
-  width: 100%;
-  left: 0%;
-}
-
-.ul-rutas li a:after {
-  content: "";
-  pointer-events: none;
-  bottom: 2px;
-  left: 50%;
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background-color: #fff;
-  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-  transition-duration: 400ms;
-  transition-property: width, left;
+  background-color: rgba(255, 255, 255, 0.25);
 }

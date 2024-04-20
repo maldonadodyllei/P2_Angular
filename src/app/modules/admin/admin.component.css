@@ -28,8 +28,9 @@
 .overlay h1 {
   color: white;
   font-size: 48px;
-  font-weight: 600;
+  font-weight: 400;
   margin-top: 1.7em;
+  text-transform: uppercase;
 }
 
 .formContainer {
@@ -173,10 +174,14 @@
     transition: .3s ease-in-out;
   }
 
-  .btnSubmit:hover{
+  .btnSubmit:disabled {
+    background: #dbdbdb80;
+    color: #11111180;
+  }
+
+  .btnSubmit:not(:disabled):hover {
     background-color: #00665e;
     color: white;
-
   }
 
   .contInput:nth-child(1) {

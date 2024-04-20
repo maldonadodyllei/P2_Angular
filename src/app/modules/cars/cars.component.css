@@ -1,5 +1,34 @@
-.bodyCars {
-  padding-top: 64px;
+.contImgH {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.contImgH img {
+  width: 100%;
+  height: 55.2vh;
+  object-fit: cover;
+  display: flex;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  padding: 5em;
+}
+
+.overlay h1 {
+  color: white;
+  font-size: 48px;
+  font-weight: 600;
+  margin-top: 1.7em;
 }
 
 section{
@@ -7,7 +36,6 @@ section{
 }
 
 section h3 {
-  font-family: var(--Montserrat);
   letter-spacing: 2px;
   text-transform: uppercase;
   transition: color 0.3s linear;
@@ -42,6 +70,6 @@ section p {
   animation: fade-in-left 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) 1s both;
 }
 
-#berlina h3 {
-  animation: fade-in-left 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) 1.4s both;
+.areCategory{
+  color: #00665e;
 }

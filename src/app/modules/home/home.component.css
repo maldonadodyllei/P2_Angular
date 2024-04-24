@@ -9,7 +9,6 @@
   position: relative;
   width: 100%;
   height: 72vh;
-  overflow: hidden;
 }
 
 .rowAM{
@@ -200,7 +199,7 @@
     height: auto;
   }
 }
-/*
+
 .scroll-reveal span{
   color: hsl(0 0% 100% / 0.2);
   background-clip: text;
@@ -213,8 +212,8 @@
 }
 
 .scroll-reveal p span{
-  animation-range-start: cover 40vh;
-  animation-range-end: cover 50vh;
+  animation-range-start: cover 7vh;
+  animation-range-end: cover 62vh;
 }
 
 @keyframes scroll-reveal{
@@ -222,7 +221,7 @@
     background-size: 100% 100%;
   }
 }
-*/
+
 @keyframes fadeOut {
   from {
     opacity: 1;
